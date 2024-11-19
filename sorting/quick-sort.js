@@ -1,3 +1,12 @@
+function quickSort(arr, left, right) {
+  if (left < right) {
+    let p = partition(arr, left, right);
+
+    quickSort(arr, left, p - 1);
+    quickSort(arr, p + 1, right);
+  }
+}
+
 function partition(arr, left, right) {
   let { pivot, pivotPosition } = getMedianOfTree(arr, left, right);
   swap(arr, pivotPosition, right);
@@ -13,15 +22,6 @@ function partition(arr, left, right) {
 
   swap(arr, i + 1, right);
   return i + 1;
-}
-
-function quickSort(arr, left, right) {
-  if (left < right) {
-    let p = partition(arr, left, right);
-
-    quickSort(arr, left, p - 1);
-    quickSort(arr, p + 1, right);
-  }
 }
 
 function swap(arr, i, j) {
